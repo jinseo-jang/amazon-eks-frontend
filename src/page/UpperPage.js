@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
 function UpperPage() {
     const classes = useStyles();
     const [ data, setState ] = useState({outcome:[]})
-    
-    const url = 'http://e6fb2819-default-nodejsbac-e029-840961090.ap-southeast-1.elb.amazonaws.com/services/all'
-    
+
+    const url = 'http://k8s-default-backendi-ddf0f8b1cb-364001580.ap-northeast-2.elb.amazonaws.com/services/all'
+
     useEffect(() => {
       const fetchData = async () => {
         const result = await axios(
@@ -39,23 +39,23 @@ function UpperPage() {
         );
         setState(result.data);
       };
-      
+
       fetchData();
     }, []);
-  
-    
+
+
     return (
       <div className={classes.root}>
         <GridList cellHeight={300} className={classes.gridList} cols={2}>
           {data.outcome.map( item => (
           <div>
-            <Card className={classes.cardRoot}>        
+            <Card className={classes.cardRoot}>
               <CardContent>
                 <Typography color="textSecondary" gutterBottom>
-                  {item.name} 
+                  {item.name}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  <img 
+                  <img
                     style={{ display: 'block', margin: '0px auto' }}
                     src={item.url}
                     height='120'

@@ -41,7 +41,7 @@ function App(props) {
   const [query, setQuery] = useState('aws');
   const [search, setSearch] = useState('aws');
 
-  var url = `http://e6fb2819-default-flaskback-a1dd-1801774018.ap-southeast-1.elb.amazonaws.com/contents/${search}`
+  var url = `http://k8s-default-backendi-ddf0f8b1cb-364001580.ap-northeast-2.elb.amazonaws.com/contents/${search}`
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,7 +51,7 @@ function App(props) {
     fetchData();
     // eslint-disable-next-line
   }, [search]);
-  
+
   return (
     <div className={classes.root}>
       <AppBar position="static" style={{ background: '#2E3B55' }}>
@@ -73,7 +73,7 @@ function App(props) {
 
       <UpperPage key={1} />
       <br/>
-      
+
       <form className={classes.searchRoot} noValidate autoComplete="off">
         <TextField
           id="standard-basic"
