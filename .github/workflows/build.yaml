@@ -62,6 +62,9 @@ jobs:
       # 새 이미지 버전으로 파일 수정
       - name: Update Kubernetes resources
         run: |
+          echo ${{ env.IMAGE_NAME }}
+          echo ${{ env.ECR_REGISTRY }}
+          echo ${{ env.ECR_REPOSITORY }}
           cd eks-workshop-manifest/overlays/dev/
           kustomize edit set image ${{ env.IMAGE_NAME }}:${{ steps.image.outputs.version }}
           cat kustomization.yaml
