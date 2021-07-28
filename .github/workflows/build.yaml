@@ -55,7 +55,7 @@ jobs:
         with:
           # kubernetes 설정정보 저장소
           repository: jinseo-jang/eks-workshop-manifest
-          ref: dev
+          ref: master
           # 다른 저장소에 push 하려면 Personal Access Token이 필요.
           token: ${{ secrets.ACTION_TOKEN }}
           path: eks-workshop-manifest
@@ -73,4 +73,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git config --global user.name "github-actions"
           git commit -am "Update image tag"
-          git push -u origin dev
+          git push -u origin master
